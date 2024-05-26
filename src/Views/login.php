@@ -20,21 +20,21 @@
     <input type="checkbox" id="chk" aria-hidden="true">
 
     <div class="signup">
-        <form>
+        <form id="signup-form" class="form" action="" method="POST">
             <label for="chk" aria-hidden="true">Sign up</label>
-            <input type="text" name="txt" placeholder="User name" required="">
+            <input type="text" name="username" placeholder="User name" required="">
             <input type="email" name="email" placeholder="Email" required="">
-            <input type="password" name="pswd" placeholder="Password" required="">
-            <button>Sign up</button>
+            <input type="password" name="pwd" placeholder="Password" required="">
+            <button type="submit" name="signup-button">Sign up</button>
         </form>
     </div>
 
     <div class="login">
-        <form>
+        <form id="login-form" class="form" action="/login" method="POST">
             <label for="chk" aria-hidden="true">Login</label>
-            <input type="email" name="email" placeholder="Email" required="">
-            <input type="password" name="pswd" placeholder="Password" required="">
-            <button>Login</button>
+            <input type="text" name="username" placeholder="User Name" required="">
+            <input type="password" name="pwd" placeholder="Password" required="">
+            <button type="submit" name="login-button">Login</button>
         </form>
     </div>
 </div>

@@ -20,6 +20,9 @@ class Router {
         $this->addRoute($route, $controller, $action, "POST");
     }
 
+    /**
+     * @throws \Exception
+     */
     public function dispatch()
     {
         $uri = strtok($_SERVER['REQUEST_URI'], '?');

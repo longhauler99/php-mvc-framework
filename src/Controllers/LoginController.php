@@ -13,24 +13,27 @@ class LoginController extends Controller
     }
     public function index()
     {
-        $sql = "SELECT * FROM `users`";
-        $stmt = $this->db->query($sql);
-
-        if($stmt->rowCount() > 0)
-        {
-            $results = $stmt->fetchAll();
-            foreach($results as $result)
-            {
-                echo "id: " . $result["UserID"] . " - Name: " . $result["UserName"] . "<br>";
-            }
-        }
-        else
-        {
-            echo "0 results found.";
-        }
-
-//        $this->render('login');
+        $this->render('login');
     }
 
+    public function login()
+    {
+        if(isset($_POST['login-button']))
+        {
+            $username = $_POST['username'];
+            $password = $_POST['pwd'];
 
+            $sql = "SELECT UserName, Password FROM `users` WHERE UserName = '$username' AND Password = '$password'";
+            $stmt = $this->db->query($sql);
+
+            if($stmt->rowCount() > 0)
+            {
+                header("Location: /home");
+            }
+            else
+            {
+                echo "User not found.";
+            }
+        }
+    }
 }
