@@ -30,7 +30,8 @@ class Router {
             $controller = $this->routes[$method][$uri]['controller'];
             $action = $this->routes[$method][$uri]['action'];
 
-            $controller = new $controller();
+            $config = require __DIR__ . '/../config.php';
+            $controller = new $controller($config['db']);
             $controller->$action();
         }
         else

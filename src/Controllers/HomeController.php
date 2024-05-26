@@ -1,5 +1,5 @@
 <?php
-namespace App\Controlers;
+namespace App\Controllers;
 
 use App\Controller;
 use App\Models\Journal;
