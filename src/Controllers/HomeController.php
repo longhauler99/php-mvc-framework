@@ -2,9 +2,16 @@
 namespace App\Controllers;
 
 use App\Controller;
+use App\Middleware\SessionMiddleware;
 use App\Models\Journal;
 
-class HomeController extends Controller {
+class HomeController extends Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+        SessionMiddleware::check();
+    }
     public function index()
     {
         $journals = [

@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - Sign up / Login Form</title>
+    <title>PHP-MVC-FRAMEWORK</title>
     <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -12,7 +12,7 @@
 <html>
 <head>
     <title>Slide Navbar</title>
-    <link rel="stylesheet" type="text/css" href="slide navbar css/style.css">
+<!--    <link rel="stylesheet" type="text/css" href="slide navbar css/style.css">-->
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -20,7 +20,7 @@
     <input type="checkbox" id="chk" aria-hidden="true">
 
     <div class="signup">
-        <form id="signup-form" class="form" action="" method="POST">
+        <form id="signup-form" class="form" action="/register" method="POST">
             <label for="chk" aria-hidden="true">Sign up</label>
             <input type="text" name="username" placeholder="User name" required="">
             <input type="email" name="email" placeholder="Email" required="">
