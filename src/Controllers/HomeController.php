@@ -12,7 +12,7 @@ class HomeController extends Controller
         parent::__construct();
         SessionMiddleware::check();
     }
-    public function index()
+    public function index(): void
     {
         $journals = [
             new Journal('Journal 1', '2024'),

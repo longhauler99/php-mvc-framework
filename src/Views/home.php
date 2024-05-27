@@ -37,10 +37,6 @@
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
                 <form name="logout-form" action="/logout" method="POST">
                     <button class="btn btn-danger" type="submit" name="logout-btn">Logout</button>
                 </form>
@@ -51,16 +47,15 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col">
-            <div class="text-center">
-                <h1 class="h1">Welcome to Simple PHP MVC Starter!</h1>
-            </div>
-            <div class="alert alert-light">
+            <div class="alert alert-light mt-2">
+                <div class="text-center">
+                    <h1 class="h1">Welcome to Simple PHP MVC Starter!</h1>
+                </div>
                 <ul>
                     <?php if (!empty($journals)) {
                         foreach ($journals as $journal) :?>
                             <li><?= $journal->name ?> (<?= $journal->publishedYear ?>)</li>
                         <?php endforeach;
-                        var_dump($_SESSION);
                     } ?>
                 </ul>
             </div>
