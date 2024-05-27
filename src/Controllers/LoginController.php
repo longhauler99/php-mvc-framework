@@ -26,8 +26,7 @@ class LoginController extends Controller
             $email = $_POST['email'];
             $password = md5($_POST['pwd']);
 
-            $sql = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
-            $stmt = $this->db->prepare($sql);
+            $stmt = $this->db->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
 
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':email', $email);

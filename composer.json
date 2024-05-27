@@ -10,5 +10,8 @@
             "name": "Murunya Saina",
             "email": "154616059+longhauler99@users.noreply.github.com"
         }
-    ]
+    ],
+  "require": {
+    "ext-pdo": "*"
+  }
 }
