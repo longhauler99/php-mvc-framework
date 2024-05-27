@@ -47,23 +47,28 @@ class LoginController extends Controller
 
     public function login(): void
     {
-        if(isset($_POST['login-button'])) {
+        if($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
             $username = $_POST['username'];
             $password = md5($_POST['pwd']);
 
-            $sql = "SELECT UserName, Password FROM `users` WHERE UserName = '$username' AND Password = '$password'";
-            $stmt = $this->db->query($sql);
-
-            if($stmt->rowCount() > 0)
+            if($this->authenticateUser($username, $password))
             {
                 session_start();
                 $_SESSION['acc_login'] = md5($username.$password);
+
                 header("Location: /home");
+                exit;
             }
             else
             {
-                echo "User not found.";
+                $this->render('login', ['error' => 'Invalid username or password']);
             }
+        }
+        else
+        {
+            header("Location: /");
+            exit;
         }
     }
 
@@ -77,5 +82,12 @@ class LoginController extends Controller
             header("Location: /");
             exit;
         }
+    }
+
+    private function authenticateUser($username, $password): bool
+    {
+        $stmt = $this->db->query("SELECT UserName, Password FROM `users` WHERE UserName = '$username' AND Password = '$password'");
+
+        return $stmt->rowCount() == 1;
     }
 }
