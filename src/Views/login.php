@@ -25,6 +25,7 @@
             <input type="text" name="username" placeholder="User name" required="">
             <input type="email" name="email" placeholder="Email" required="">
             <input type="password" name="pwd" placeholder="Password" required="">
+            <input type="password" name="pwd2" placeholder="Confirm Password" required="">
             <button type="submit" name="signup-button">Sign up</button>
         </form>
     </div>

@@ -25,21 +25,29 @@ class LoginController extends Controller
             $username = $_POST['username'];
             $email = $_POST['email'];
             $password = md5($_POST['pwd']);
+            $password2 = md5($_POST['pwd2']);
 
-            $stmt = $this->db->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
-
-            $stmt->bindParam(':username', $username);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':password', $password);
-
-            if ($stmt->execute())
+            if($password == $password2)
             {
-                header("Location: /");
-                exit;
+                $stmt = $this->db->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
+
+                $stmt->bindParam(':username', $username);
+                $stmt->bindParam(':email', $email);
+                $stmt->bindParam(':password', $password);
+
+                if ($stmt->execute())
+                {
+                    header("Location: /");
+                    exit;
+                }
+                else
+                {
+                    echo "Error: " . $stmt->errorInfo()[2];
+                }
             }
             else
             {
-                echo "Error: " . $stmt->errorInfo()[2];
+                $this->render('login', ['error' => 'Passwords do not match']);
             }
         }
     }
