@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="main">
-    <input type="checkbox" id="chk" aria-hidden="true">
+    <input type="checkbox" id="chk" aria-hidden="true" checked>
 
     <div class="signup">
         <form id="signup-form" class="form" action="/register" method="POST">
