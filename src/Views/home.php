@@ -51,13 +51,28 @@
                 <div class="text-center">
                     <h1 class="h1">Welcome to Simple PHP MVC Starter!</h1>
                 </div>
-                <ul>
-                    <?php if (!empty($journals)) {
-                        foreach ($journals as $journal) :?>
-                            <li><?= $journal->name ?> (<?= $journal->publishedYear ?>)</li>
-                        <?php endforeach;
-                    } ?>
-                </ul>
+                <table class="table table-responsive-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>User Name</th>
+                            <th>Email Address</th>
+                            <th>Password</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if (!empty($users)) {
+                            foreach ($users as $user): ?>
+                                <tr>
+                                    <td><?= $user['UserID'] ?></td>
+                                    <td><?= $user['UserName'] ?></td>
+                                    <td><?= $user['Email'] ?></td>
+                                    <td><?= $user['Password'] ?></td>
+                                </tr>
+                            <?php endforeach;
+                        } ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

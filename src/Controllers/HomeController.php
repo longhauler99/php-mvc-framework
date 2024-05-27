@@ -2,26 +2,24 @@
 namespace App\Controllers;
 
 use App\Controller;
+use App\Core\Connection;
 use App\Middleware\SessionMiddleware;
 use App\Models\Journal;
 
 class HomeController extends Controller
 {
-    public function __construct()
+    protected $db;
+    public function __construct($config)
     {
         parent::__construct();
         SessionMiddleware::check();
+        $this->db = Connection::connect($config);
     }
     public function index(): void
     {
-        $journals = [
-            new Journal('Journal 1', '2024'),
-            new Journal('Journal 2', '2025'),
-            new Journal('Journal 3', '2026'),
-            new Journal('Journal 4', '2027'),
-            new Journal('Journal 5', '2028')
-        ];
+        $stmt = $this->db->query("SELECT * FROM `users`");
+        $users = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         //
-        $this->render('home', ['journals' => $journals]);
+        $this->render('home', ['users' => $users]);
     }
 }
