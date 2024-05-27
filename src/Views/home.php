@@ -64,10 +64,10 @@
                         <?php if (!empty($users)) {
                             foreach ($users as $user): ?>
                                 <tr>
-                                    <td><?= $user['UserID'] ?></td>
-                                    <td><?= $user['UserName'] ?></td>
-                                    <td><?= $user['Email'] ?></td>
-                                    <td><?= $user['Password'] ?></td>
+                                    <td><?= $user->UserID ?></td>
+                                    <td><?= $user->UserName ?></td>
+                                    <td><?= $user->Email ?></td>
+                                    <td><?= $user->Password ?></td>
                                 </tr>
                             <?php endforeach;
                         } ?>

@@ -18,7 +18,7 @@ class HomeController extends Controller
     public function index(): void
     {
         $stmt = $this->db->query("SELECT * FROM `users`");
-        $users = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $users = $stmt->fetchAll(\PDO::FETCH_OBJ);
         //
         $this->render('home', ['users' => $users]);
     }
