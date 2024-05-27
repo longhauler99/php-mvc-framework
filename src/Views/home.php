@@ -38,7 +38,7 @@
                     </li>
                 </ul>
                 <form name="logout-form" action="/logout" method="POST">
-                    <button class="btn btn-danger" type="submit" name="logout-btn">Logout</button>
+                    <button class="btn btn-sm btn-outline-danger text-light" type="submit" name="logout-btn">Logout</button>
                 </form>
             </div>
         </div>
