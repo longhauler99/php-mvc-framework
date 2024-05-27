@@ -11,5 +11,12 @@ $router->post('/login', LoginController::class, 'login');
 $router->post('/logout', LoginController::class, 'logout');
 $router->get('/home', HomeController::class, 'index');
 
-$router->dispatch();
+try
+{
+    $router->dispatch();
+}
+catch (Exception $e)
+{
+    echo $e->getMessage();
+}
 
